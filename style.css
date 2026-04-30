@@ -1,0 +1,75 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
+:root { 
+    --ave-orange: #ff6600; 
+    --card-bg: #1e1e1e; 
+    --black: #121212; 
+}
+
+body { background: var(--black); color: #fff; padding: 10px; display: flex; justify-content: center; min-height: 100vh; }
+
+.container { 
+    width: 100%; 
+    max-width: 450px; 
+    background: var(--card-bg); 
+    padding: 20px; 
+    border-radius: 24px; 
+    border: 1px solid #333;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.header { text-align: center; margin-bottom: 20px; }
+.header h2 { color: var(--ave-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 2px; font-size: 1.4rem; }
+
+.input-group { margin-bottom: 12px; position: relative; }
+label { display: block; font-weight: bold; font-size: 0.65rem; margin-bottom: 5px; color: #888; text-transform: uppercase; }
+input { width: 100%; padding: 14px; border: 1px solid #444; border-radius: 12px; font-size: 1rem; outline: none; background: #2c2c2c; color: #fff; transition: 0.3s; }
+input:focus { border-color: var(--ave-orange); box-shadow: 0 0 10px rgba(255,102,0,0.2); }
+
+/* ARES Results */
+#ares-results { position: absolute; width: 100%; background: #2c2c2c; border: 1px solid var(--ave-orange); z-index: 999; border-radius: 12px; max-height: 180px; overflow-y: auto; display: none; margin-top: 5px; }
+.ares-item { padding: 12px; cursor: pointer; border-bottom: 1px solid #333; font-size: 0.8rem; }
+.ares-item:hover { background: #3d3d3d; }
+
+/* Vizuál popelnice s logem */
+.preview-area { background: #121212; border-radius: 20px; padding: 25px 15px; margin: 15px 0; text-align: center; border: 1px solid #222; }
+.bin-container { 
+    width: 90px; 
+    height: 120px; 
+    margin: 0 auto 30px auto; 
+    position: relative; 
+    border-radius: 5px 5px 15px 15px; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s;
+    background: #1a1a1a;
+}
+
+/* Kolečka */
+.bin-container::before, .bin-container::after { content: ''; position: absolute; bottom: -12px; width: 22px; height: 22px; background: #333; border-radius: 50%; border: 4px solid #121212; }
+.bin-container::before { left: 8px; }
+.bin-container::after { right: 8px; }
+
+/* Stylizované logo AVE uvnitř popelnice */
+.ave-logo-svg { width: 70%; fill: var(--ave-orange); filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5)); margin-bottom: 5px; }
+
+#inner-text { color: white; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; z-index: 1; }
+
+.grid { display: grid; gap: 8px; margin: 10px 0; }
+.waste-grid { grid-template-columns: 1fr 1fr; }
+.size-grid { grid-template-columns: repeat(3, 1fr); }
+
+.box { padding: 14px 2px; text-align: center; border-radius: 12px; cursor: pointer; border: 2px solid transparent; font-weight: bold; font-size: 0.75rem; background: #2c2c2c; transition: 0.2s; }
+input[type="radio"] { display: none; }
+input[type="radio"]:checked + .box { border-color: var(--ave-orange); background: #333; transform: scale(1.05); }
+
+.qty-area { display: flex; align-items: center; justify-content: center; gap: 20px; margin: 15px 0; }
+.qty-btn { width: 44px; height: 44px; border-radius: 50%; border: none; background: #333; color: white; font-size: 1.5rem; cursor: pointer; }
+
+.add-btn { width: 100%; background: #444; color: #fff; border: none; padding: 16px; border-radius: 14px; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+
+.cart-area { border: 1px dashed #444; padding: 15px; border-radius: 15px; margin: 15px 0; display: none; background: rgba(255, 102, 0, 0.03); }
+.cart-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #333; font-size: 0.85rem; }
+
+.submit-btn { width: 100%; background: var(--ave-orange); color: #fff; border: none; padding: 20px; border-radius: 16px; font-weight: 900; font-size: 1.1rem; cursor: pointer; margin-top: 10px; text-transform: uppercase; box-shadow: 0 10px 20px rgba(255,102,0,0.3); }
